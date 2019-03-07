@@ -12,10 +12,18 @@ public class User extends Player {
 
     public void makeMove() {
 
-        final int x = input.getX();
-        final int y = input.getY();
+        int x;
+        int y;
+
+        do {
+            x = input.getX();
+            y = input.getY();
+
+        } while (!this.getBoard().movePossible(x, y));
 
         this.getBoard().updateState(x, y, this.getSymbol());
+
+
 
     }
 }

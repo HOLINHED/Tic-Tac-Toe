@@ -7,8 +7,8 @@ public class Game {
     private Player computer;
     private boolean running;
 
-    public Game(Input input) {
-        this.board = new Board(3,3);
+    public Game(int width, int height, Input input) {
+        this.board = new Board(width, height);
         this.user = new User(board, input);
         this.computer = new Computer(board);
 
@@ -20,6 +20,11 @@ public class Game {
     }
 
     public void update() {
+
+        if (!this.board.playPossible()) {
+            this.running = false;
+            return;
+        }
 
         this.user.makeMove();
         this.computer.makeMove();

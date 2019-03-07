@@ -6,7 +6,7 @@ public class TextBased {
 
         Input input = new KeyInput();
 
-        Game game = new Game(input);
+        Game game = new Game(3, 3, input);
 
         System.out.println(game.getBoard());
 
