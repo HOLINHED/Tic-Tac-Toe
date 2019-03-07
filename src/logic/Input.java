@@ -1,30 +1,9 @@
 package logic;
 
-import java.util.Scanner;
+public interface Input {
 
-// TODO: Make this an abstract class.
+    int getX();
 
-public class Input {
-
-    public int getX() {
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter an X value: ");
-        final int x = scanner.nextInt();
-
-        return x;
-    }
-
-    public int getY() {
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter a Y value: ");
-        final int y = scanner.nextInt();
-
-        return y;
-
-    }
+    int getY();
 
 }

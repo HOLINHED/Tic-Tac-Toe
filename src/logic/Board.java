@@ -49,7 +49,7 @@ public class Board {
 
         for (int y = 0; y < this.height; y++) {
             for (int x = 0; x < this.width; x++) {
-                board += "| " + this.state[x][y];
+                board += " | " + this.state[x][y];
             }
             board += " |\n";
         }

@@ -7,9 +7,9 @@ public class Game {
     private Player computer;
     private boolean running;
 
-    public Game() {
+    public Game(Input input) {
         this.board = new Board(3,3);
-        this.user = new User(board);
+        this.user = new User(board, input);
         this.computer = new Computer(board);
 
         this.running = true;

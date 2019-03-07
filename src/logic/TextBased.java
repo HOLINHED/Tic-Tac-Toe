@@ -4,7 +4,9 @@ public class TextBased {
 
     public static void main(String[] args) {
 
-        Game game = new Game();
+        Input input = new KeyInput();
+
+        Game game = new Game(input);
 
         System.out.println(game.getBoard());
 

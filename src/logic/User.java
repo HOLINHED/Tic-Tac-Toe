@@ -1,16 +1,16 @@
 package logic;
 
-import java.util.Scanner;
-
 public class User extends Player {
 
-    public User(Board board) {
+    private Input input;
+
+    public User(Board board, Input input) {
         super('X', board);
+
+        this.input = input;
     }
 
     public void makeMove() {
-
-        Input input = new Input();
 
         final int x = input.getX();
         final int y = input.getY();
