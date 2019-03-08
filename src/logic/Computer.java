@@ -17,7 +17,7 @@ public class Computer extends Player{
             x = (int) Math.floor(Math.random() * this.getBoard().getWidth());
             y = (int) Math.floor(Math.random() * this.getBoard().getHeight());
 
-        } while (!this.getBoard().movePossible(x, y));
+        } while (!this.getBoard().movePossible(x, y) && this.getBoard().playPossible());
 
         this.getBoard().updateState(x, y, this.getSymbol());
 

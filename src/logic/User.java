@@ -19,11 +19,9 @@ public class User extends Player {
             x = input.getX();
             y = input.getY();
 
-        } while (!this.getBoard().movePossible(x, y));
+        } while (!this.getBoard().movePossible(x, y) && this.getBoard().playPossible());
 
         this.getBoard().updateState(x, y, this.getSymbol());
-
-
 
     }
 }

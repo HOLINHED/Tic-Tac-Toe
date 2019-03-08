@@ -9,21 +9,21 @@ public class Board {
     private char[][] state;
     private int boardSize;
 
-    public Board(int width, int height) {
+    public Board(int big) {
 
-        this.width = width;
-        this.height = height;
+        this.width = big;
+        this.height = big;
 
         this.state = new char[this.width][this.height];
         this.boardSize = 0;
 
         Arrays.stream(this.state)
                 .forEach(a -> Arrays.fill(a, ' '));
-
     }
 
     public void updateState(int x, int y, char symbol) {
         this.state[x][y] = symbol;
+        this.boardSize += 1;
     }
 
     public int getWidth() {
@@ -44,12 +44,42 @@ public class Board {
 
     public boolean checkWinner(char symbol) {
 
-        // TODO: Use algorithm to check for a winner, and return that winner, else return '0'
+        // Check rows/cols
+        for (int x = 0; x < state.length; x++) {
+            int xToken = 0;
+            int yToken = 0;
 
-        int token = 0;
+            for (int y = 0; y < state[x].length; y++) {
+                if (state[x][y] == symbol) {
+                    yToken++;
+                }
 
-        return token == 3;
+                if (state[y][x] == symbol) {
+                    xToken += 1;
+                }
+
+                if (xToken == 3 || yToken == 3) return true;
+            }
+        }
+
+        int fToken = 0;
+        int bToken = 0;
+        
+        for (int i = 0, j = this.width - 1; i < this.width && j >= 0; i++, j--) {
+            if (state[i][i] == symbol) {
+                fToken += 1;
+            }
+
+            if (state[j][j] == symbol) {
+                bToken += 1;
+            }
+
+            if (fToken == 3 || bToken == 3) return true;
+        }
+
+        return false;
     }
+
 
     @Override
     public String toString() {

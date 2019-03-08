@@ -20,5 +20,5 @@ public abstract class Player {
     protected Board getBoard() {
         return this.board;
     }
-
+    
 }
