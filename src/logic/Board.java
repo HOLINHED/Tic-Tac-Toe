@@ -64,13 +64,15 @@ public class Board {
 
         int fToken = 0;
         int bToken = 0;
-        
-        for (int i = 0, j = this.width - 1; i < this.width && j >= 0; i++, j--) {
+
+        for (int i = 0; i < this.width; i++) {
+
             if (state[i][i] == symbol) {
                 fToken += 1;
             }
 
-            if (state[j][j] == symbol) {
+            final int r = (this.width - 1) - i;
+            if (state[i][r] == symbol) {
                 bToken += 1;
             }
 
