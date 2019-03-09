@@ -1,6 +1,7 @@
-package logic;
+package textBased;
 
 import java.util.Scanner;
+import logic.Input;
 
 public class KeyInput implements Input {
 

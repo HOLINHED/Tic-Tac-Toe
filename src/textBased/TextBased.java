@@ -1,4 +1,6 @@
-package logic;
+package textBased;
+
+import logic.Game;
 
 public class TextBased {
 

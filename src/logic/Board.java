@@ -62,6 +62,7 @@ public class Board {
             }
         }
 
+        // Check diagonals
         int fToken = 0;
         int bToken = 0;
 
@@ -82,6 +83,9 @@ public class Board {
         return false;
     }
 
+    public char[][] getState() {
+        return state;
+    }
 
     @Override
     public String toString() {
