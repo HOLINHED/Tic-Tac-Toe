@@ -1,27 +1,25 @@
 package graphics;
 
 import javax.swing.JFrame;
+import java.awt.*;
 
 public class Runner extends JFrame {
 
-    private final int WIDTH = 600;
-    private final int HEIGHT = 600;
+    final int WIDTH = 600;
+    final int HEIGHT = 600;
 
-    public Runner() {
-
-        super("Tic Tac Toe");
-        setSize(this.WIDTH, this.HEIGHT);
-
-        getContentPane().add(new TicTacToe());
-
-        setVisible(true);
-
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+    public static void main(String[] args) {
+        new Runner();
     }
 
-    public static void main(String... args) {
-        Runner game = new Runner();
+    private Runner() {
+        super("Tic Tac Toe");
+        setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        add(new TicTacToe());
+        pack();
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setVisible(true);
+        setResizable(false);
     }
 
 }

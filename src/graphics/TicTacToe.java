@@ -2,24 +2,50 @@ package graphics;
 
 import java.awt.Graphics;
 import java.awt.Color;
-import java.awt.Canvas;
-import java.awt.Font;
-import java.awt.Polygon;
+import javax.swing.JPanel;
+import java.awt.event.ActionListener;
+import javax.swing.Timer;
 
-public class TicTacToe extends Canvas {
+import java.util.ArrayList;
+import java.util.List;
+
+import logic.Game;
+
+public class TicTacToe extends JPanel {
+
+    private Game game;
+    private List<Tile> tiles;
 
     public TicTacToe() {
-        setBackground(Color.white);
+        setBackground(Color.black);
+
+        this.game = new Game(3, new MouseInput());
+
+        tiles = new ArrayList<>();
+
+        int wh = game.getBoard().getHeight();
+
+        for (int y = 0; y < wh; y++)
+            for(int x = 0; x < wh; x++)
+                tiles.add(new Tile(x, y, 600 / 3));
+
+        ActionListener update = event -> repaint();
+
+        Timer timer = new Timer(10, update);
+        timer.start();
     }
 
-    @Override
-    public void paint(Graphics window) {
+    public void paintComponent(Graphics window) {
 
-        window.setColor(Color.red);
-        window.drawString("Hello world!", 50, 50);
+        super.paintComponent(window);
+
+        if (!this.game.isRunning()) {
+            window.setColor(Color.red);
+            window.drawString("WINNER: " + game.getWinner().getSymbol(), 50, 50);
+        }
+
+        tiles.forEach(a -> a.draw(window));
 
     }
-
-
 
 }
