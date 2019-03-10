@@ -8,10 +8,9 @@ import logic.Game;
 
 public class Tile {
 
-    private static int scale;
+    private int scale;
     private int x;
     private int y;
-    private char symbol;
     private Game game;
 
     public Tile(int x, int y, int scl, Game context) {
@@ -23,7 +22,7 @@ public class Tile {
 
     public void draw(Graphics window) {
 
-        symbol = game.getBoard().getState()[x][y];
+        char symbol = game.getBoard().getState()[x][y];
 
         window.setColor(Color.white);
 

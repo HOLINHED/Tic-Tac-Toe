@@ -35,7 +35,7 @@ public class Board {
     }
 
     public boolean playPossible() {
-        return this.boardSize != this.width * this.height;
+        return this.boardSize < this.width * this.height;
     }
 
     public boolean movePossible(int x, int y) {

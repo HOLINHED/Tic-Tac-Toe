@@ -15,7 +15,7 @@ public class Runner extends JFrame {
     private Runner() {
         super("Tic Tac Toe");
         setPreferredSize(new Dimension(WIDTH, HEIGHT));
-        add(new TicTacToe());
+        getContentPane().add(new TicTacToe());
         pack();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);

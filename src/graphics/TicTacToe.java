@@ -19,7 +19,9 @@ public class TicTacToe extends JPanel {
     public TicTacToe() {
         setBackground(Color.black);
 
-        this.game = new Game(3, new MouseInput());
+        final int BOARD_SIZE = 3;
+
+        this.game = new Game(BOARD_SIZE, new MouseInput(600 / BOARD_SIZE));
 
         tiles = new ArrayList<>();
 
@@ -27,7 +29,7 @@ public class TicTacToe extends JPanel {
 
         for (int y = 0; y < wh; y++)
             for(int x = 0; x < wh; x++)
-                tiles.add(new Tile(x, y, 600 / 3, game));
+                tiles.add(new Tile(x, y, 600 / BOARD_SIZE, game));
 
         ActionListener update = event -> repaint();
 
