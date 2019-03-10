@@ -9,7 +9,7 @@ public class Board {
     private char[][] state;
     private int boardSize;
 
-    public Board(int big) {
+    Board(int big) {
 
         this.width = big;
         this.height = big;
@@ -42,7 +42,9 @@ public class Board {
         return (x >= 0 && y >= 0 && x < width && y < height) && this.state[x][y] == ' ';
     }
 
-    public boolean checkWinner(char symbol) {
+    public boolean checkWinner(Player playing) {
+
+        final char symbol = playing.getSymbol();
 
         // Check rows/cols
         for (int x = 0; x < state.length; x++) {

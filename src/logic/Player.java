@@ -5,7 +5,7 @@ public abstract class Player {
     private char symbol;
     private Board board;
 
-    public Player(char symbol, Board board) {
+    Player(char symbol, Board board) {
 
         this.symbol = symbol;
         this.board = board;
@@ -13,7 +13,7 @@ public abstract class Player {
 
     abstract void makeMove();
 
-    public  char getSymbol() {
+    public char getSymbol() {
         return this.symbol;
     }
 

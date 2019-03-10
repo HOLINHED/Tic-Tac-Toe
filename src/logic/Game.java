@@ -7,6 +7,7 @@ public class Game {
     private Player computer;
     private Player winner;
     private boolean running;
+    private boolean turn;
 
     public Game(int big, Input input) {
         this.board = new Board(big);
@@ -14,6 +15,7 @@ public class Game {
         this.user = new User(board, input);
         this.computer = new Computer(board);
         this.winner = null;
+        this.turn = true;
 
         this.running = true;
     }
@@ -29,20 +31,15 @@ public class Game {
             return;
         }
 
-        this.user.makeMove();
+        Player playing = turn ? user : computer;
 
-        if (this.getBoard().checkWinner(this.user.getSymbol())) {
-            this.running = false;
-            this.winner = user;
-            return;
-        }
+        playing.makeMove();
 
-        this.computer.makeMove();
+        turn = !turn;
 
-        if (this.getBoard().checkWinner(this.computer.getSymbol())) {
-            this.running = false;
-            this.winner = computer;
-            return;
+        if (getBoard().checkWinner(playing)) {
+            running = false;
+            winner = playing;
         }
 
     }
