@@ -4,14 +4,21 @@ import logic.Input;
 
 public class MouseInput implements Input {
 
-    // Make this get position of mouse to get the x and y
+    //TODO: Make this  return the position of the mouse
+
+    private int x;
+    private int y;
+
+    public void getPos() {
+
+    }
 
     public int getX() {
-        return (int) Math.floor(Math.random() * 3);
+        return x;
     }
 
     public int getY() {
-        return (int) Math.floor(Math.random() * 3);
+        return y;
     }
 
 }

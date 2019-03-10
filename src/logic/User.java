@@ -16,6 +16,8 @@ public class User extends Player {
         int y;
 
         do {
+            input.getPos();
+
             x = input.getX();
             y = input.getY();
 
