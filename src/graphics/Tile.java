@@ -33,7 +33,7 @@ public class Tile {
 
         window.setFont(new Font("TAHOMA", Font.BOLD, 150));
 
-        window.drawString(Character.toString(symbol), (x * scale) + scale / 2 - scale / 4, (y * scale) + scale / 2 + scale / 4);
+        window.drawString(Character.toString(symbol), (x * scale) + scale / 4, (y * scale) + (3 * scale) / 4);
 
     }
 
