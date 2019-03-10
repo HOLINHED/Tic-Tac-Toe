@@ -27,7 +27,7 @@ public class TicTacToe extends JPanel {
 
         for (int y = 0; y < wh; y++)
             for(int x = 0; x < wh; x++)
-                tiles.add(new Tile(x, y, 600 / 3));
+                tiles.add(new Tile(x, y, 600 / 3, game));
 
         ActionListener update = event -> repaint();
 
@@ -39,9 +39,11 @@ public class TicTacToe extends JPanel {
 
         super.paintComponent(window);
 
-        if (!this.game.isRunning()) {
-            window.setColor(Color.red);
-            window.drawString("WINNER: " + game.getWinner().getSymbol(), 50, 50);
+        if (game.isRunning()) {
+            game.update();
+        } else {
+            //System.out.println(game.getWinner().getSymbol());
+            //System.exit(0);
         }
 
         tiles.forEach(a -> a.draw(window));

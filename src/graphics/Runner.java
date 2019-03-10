@@ -19,6 +19,7 @@ public class Runner extends JFrame {
         pack();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
+        setLocationRelativeTo(null);
         setResizable(false);
     }
 
