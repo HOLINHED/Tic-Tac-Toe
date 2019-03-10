@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
+import java.awt.Dimension;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +18,9 @@ public class TicTacToe extends JPanel {
     private List<Tile> tiles;
 
     public TicTacToe() {
+
+        setPreferredSize(new Dimension(600, 600));
+
         setBackground(Color.black);
 
         final int BOARD_SIZE = 3;
