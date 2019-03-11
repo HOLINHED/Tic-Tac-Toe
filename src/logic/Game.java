@@ -33,9 +33,12 @@ public class Game {
 
         Player playing = turn ? user : computer;
 
+        final int prevSize = getBoard().getBoardSize();
+
         playing.makeMove();
 
-        turn = !turn;
+        if (getBoard().getBoardSize() > prevSize)
+            turn = !turn;
 
         if (getBoard().checkWinner(playing)) {
             running = false;

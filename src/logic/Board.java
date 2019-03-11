@@ -89,6 +89,10 @@ public class Board {
         return state;
     }
 
+    public int getBoardSize() {
+        return boardSize;
+    }
+
     @Override
     public String toString() {
 

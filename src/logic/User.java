@@ -12,18 +12,16 @@ public class User extends Player {
 
     public void makeMove() {
 
-        int x;
-        int y;
+        input.getPos();
 
-        do {
-            input.getPos();
+        final Board board = getBoard();
 
-            x = input.getX();
-            y = input.getY();
+        int x = input.getX();
+        int y = input.getY();
 
-        } while (!this.getBoard().movePossible(x, y) && this.getBoard().playPossible());
-
-        this.getBoard().updateState(x, y, this.getSymbol());
+        if (board.movePossible(x, y) && board.playPossible()) {
+            board.updateState(x, y, getSymbol());
+        }
 
     }
 }
