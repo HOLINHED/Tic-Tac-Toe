@@ -5,7 +5,7 @@ public class Game {
     private Board board;
     private Player user;
     private Player computer;
-    private Player winner;
+    private String winner;
     private boolean running;
     private boolean turn;
 
@@ -26,8 +26,8 @@ public class Game {
 
     public void update() {
 
-        if (!this.board.playPossible()) {
-            this.running = false;
+        if (!board.playPossible()) {
+            running = false;
             return;
         }
 
@@ -42,17 +42,17 @@ public class Game {
 
         if (getBoard().checkWinner(playing)) {
             running = false;
-            winner = playing;
+            winner = playing.toString();
         }
 
     }
 
     public boolean isRunning() {
-        return this.running;
+        return running;
     }
 
-    public Player getWinner() {
-        return this.winner;
+    public String getWinner() {
+        return winner;
     }
 
 }

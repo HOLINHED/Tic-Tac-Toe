@@ -31,7 +31,7 @@ public class TextBased {
         }
 
         // Display winner
-        System.out.println("WINNER: " + game.getWinner().getSymbol());
+        System.out.println("WINNER: " + game.getWinner());
 
     }
 

@@ -21,4 +21,9 @@ public abstract class Player {
         return this.board;
     }
 
+    @Override
+    public String toString() {
+        return Character.toString(symbol);
+    }
+
 }

@@ -50,7 +50,7 @@ public class TicTacToe extends JPanel {
             game.update();
         } else {
             // TODO: Make this display in gui instead of in console.
-            System.out.println(game.getWinner().getSymbol());
+            System.out.println(game.getWinner());
             timer.stop();
         }
 

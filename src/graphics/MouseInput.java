@@ -8,7 +8,7 @@ public class MouseInput implements Input {
     private int y;
     private int size;
 
-    public MouseInput(int size) {
+    MouseInput(int size) {
         this.size = size;
 
         this.x = 0;
@@ -17,8 +17,8 @@ public class MouseInput implements Input {
 
     @Override
     public void getPos() {
-        x = (int) Math.floor(Math.random() * 3);
-        y = (int) Math.floor(Math.random() * 3);
+        x = (int) Math.floor(Math.random() * 600) / size;
+        y = (int) Math.floor(Math.random() * 600) / size;
     }
 
     @Override
