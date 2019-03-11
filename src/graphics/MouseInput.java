@@ -17,8 +17,8 @@ public class MouseInput implements Input {
 
     @Override
     public void getPos() {
-        x = (int) Math.floor(Math.random() * 2);
-        y = (int) Math.floor(Math.random() * 2);
+        x = (int) Math.floor(Math.random() * 3);
+        y = (int) Math.floor(Math.random() * 3);
     }
 
     @Override

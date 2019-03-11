@@ -16,6 +16,7 @@ public class TicTacToe extends JPanel {
 
     private Game game;
     private List<Tile> tiles;
+    private Timer timer;
 
     public TicTacToe() {
 
@@ -37,7 +38,7 @@ public class TicTacToe extends JPanel {
 
         ActionListener update = event -> repaint();
 
-        Timer timer = new Timer(10, update);
+        timer = new Timer(10, update);
         timer.start();
     }
 
@@ -48,8 +49,9 @@ public class TicTacToe extends JPanel {
         if (game.isRunning()) {
             game.update();
         } else {
-            //System.out.println(game.getWinner().getSymbol());
-            //System.exit(0);
+            // TODO: Make this display in gui instead of in console.
+            System.out.println(game.getWinner().getSymbol());
+            timer.stop();
         }
 
         tiles.forEach(a -> a.draw(window));
