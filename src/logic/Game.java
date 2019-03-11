@@ -21,7 +21,7 @@ public class Game {
     }
 
     public Board getBoard() {
-        return this.board;
+        return board;
     }
 
     public void update() {

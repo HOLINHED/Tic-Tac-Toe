@@ -9,37 +9,37 @@ public class Board {
     private char[][] state;
     private int boardSize;
 
-    Board(int big) {
+    Board(int size) {
 
-        this.width = big;
-        this.height = big;
+        width = size;
+        height = size;
 
-        this.state = new char[this.width][this.height];
-        this.boardSize = 0;
+        state = new char[this.width][this.height];
+        boardSize = 0;
 
-        Arrays.stream(this.state)
+        Arrays.stream(state)
                 .forEach(a -> Arrays.fill(a, ' '));
     }
 
     public void updateState(int x, int y, char symbol) {
-        this.state[x][y] = symbol;
-        this.boardSize += 1;
+        state[x][y] = symbol;
+        boardSize += 1;
     }
 
     public int getWidth() {
-        return this.width;
+        return width;
     }
 
     public int getHeight() {
-        return this.height;
+        return height;
     }
 
     public boolean playPossible() {
-        return this.boardSize < this.width * this.height;
+        return boardSize < width * height;
     }
 
     public boolean movePossible(int x, int y) {
-        return (x >= 0 && y >= 0 && x < width && y < height) && this.state[x][y] == ' ';
+        return (x >= 0 && y >= 0 && x < width && y < height) && state[x][y] == ' ';
     }
 
     public boolean checkWinner(Player playing) {
@@ -68,13 +68,13 @@ public class Board {
         int fToken = 0;
         int bToken = 0;
 
-        for (int i = 0; i < this.width; i++) {
+        for (int i = 0; i < width; i++) {
 
             if (state[i][i] == symbol) {
                 fToken += 1;
             }
 
-            final int r = (this.width - 1) - i;
+            final int r = (width - 1) - i;
             if (state[i][r] == symbol) {
                 bToken += 1;
             }
@@ -98,9 +98,9 @@ public class Board {
 
         String board = "";
 
-        for (int y = 0; y < this.height; y++) {
-            for (int x = 0; x < this.width; x++) {
-                board += " | " + this.state[x][y];
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                board += " | " + state[x][y];
             }
             board += " |\n";
         }
