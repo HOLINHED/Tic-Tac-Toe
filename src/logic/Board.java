@@ -45,6 +45,7 @@ public class Board {
     boolean checkWinner(Player playing) {
 
         final char symbol = playing.getSymbol();
+        final int size = state.length;
 
         // Check rows/cols
         for (int x = 0; x < state.length; x++) {
@@ -60,7 +61,7 @@ public class Board {
                     xToken += 1;
                 }
 
-                if (xToken == 3 || yToken == 3) return true;
+                if (xToken == size || yToken == size) return true;
             }
         }
 
@@ -79,7 +80,7 @@ public class Board {
                 bToken += 1;
             }
 
-            if (fToken == 3 || bToken == 3) return true;
+            if (fToken == size || bToken == size) return true;
         }
 
         return false;
