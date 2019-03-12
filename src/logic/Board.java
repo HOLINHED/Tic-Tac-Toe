@@ -55,23 +55,21 @@ public class Board {
             int xToken = 0;
             int yToken = 0;
 
-            if (state[x][x] == symbol) {
-                fToken += 1;
-            }
+            // Checks diagonals
+            if (state[x][x] == symbol) fToken += 1;
 
             final int r = (width - 1) - x;
-            if (state[x][r] == symbol) {
-                bToken += x;
-            }
 
+            if (state[x][r] == symbol) bToken += x;
+
+            // Checks rows/cols
             for (int y = 0; y < state[x].length; y++) {
-                if (state[x][y] == symbol) {
-                    yToken += 1;
-                }
 
-                if (state[y][x] == symbol) {
-                    xToken += 1;
-                }
+                if (state[x][y] == symbol) yToken += 1;
+
+
+                if (state[y][x] == symbol) xToken += 1;
+
 
                 if (xToken == size || yToken == size || fToken == size || bToken == size) return true;
             }
