@@ -47,10 +47,22 @@ public class Board {
         final char symbol = playing.getSymbol();
         final int size = state.length;
 
-        // Check rows/cols
+        int fToken = 0;
+        int bToken = 0;
+
         for (int x = 0; x < state.length; x++) {
+
             int xToken = 0;
             int yToken = 0;
+
+            if (state[x][x] == symbol) {
+                fToken += 1;
+            }
+
+            final int r = (width - 1) - x;
+            if (state[x][r] == symbol) {
+                bToken += x;
+            }
 
             for (int y = 0; y < state[x].length; y++) {
                 if (state[x][y] == symbol) {
@@ -61,26 +73,8 @@ public class Board {
                     xToken += 1;
                 }
 
-                if (xToken == size || yToken == size) return true;
+                if (xToken == size || yToken == size || fToken == size || bToken == size) return true;
             }
-        }
-
-        // Check diagonals
-        int fToken = 0;
-        int bToken = 0;
-
-        for (int i = 0; i < width; i++) {
-
-            if (state[i][i] == symbol) {
-                fToken += 1;
-            }
-
-            final int r = (width - 1) - i;
-            if (state[i][r] == symbol) {
-                bToken += 1;
-            }
-
-            if (fToken == size || bToken == size) return true;
         }
 
         return false;
