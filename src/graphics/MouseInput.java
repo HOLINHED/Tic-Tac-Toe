@@ -30,11 +30,9 @@ public class MouseInput implements Input {
 
     void setX(int x) {
         this.x = x / size;
-        System.out.println(this.x);
     }
 
     void setY(int y) {
         this.y = y / size;
-        System.out.println(this.y);
     }
 }

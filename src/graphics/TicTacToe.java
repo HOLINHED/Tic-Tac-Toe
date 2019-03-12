@@ -1,11 +1,9 @@
 package graphics;
 
-import java.awt.Graphics;
-import java.awt.Color;
+import java.awt.*;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import javax.swing.Timer;
-import java.awt.Dimension;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -20,10 +18,12 @@ public class TicTacToe extends JPanel implements MouseListener {
     private List<Tile> tiles;
     private Timer timer;
     private MouseInput input;
+    private final int WIDTH = 600;
+    private final int HEIGHT = 600;
 
     public TicTacToe() {
 
-        setPreferredSize(new Dimension(600, 600));
+        setPreferredSize(new Dimension(WIDTH, HEIGHT));
 
         setBackground(Color.black);
 
@@ -53,16 +53,22 @@ public class TicTacToe extends JPanel implements MouseListener {
 
         super.paintComponent(window);
 
+        tiles.forEach(a -> a.draw(window));
+
         if (game.isRunning()) {
             game.update();
         } else {
-            // TODO: Make this display in gui instead of in console.
-            System.out.println(game.getWinner());
+            window.setColor(Color.red);
+
+            window.setFont(new Font("TAHOMA", Font.BOLD, 40));
+
+            final String winner = "WINNER: " + game.getWinner();
+
+            final int w = window.getFontMetrics().stringWidth(winner);
+
+            window.drawString(winner, w - w/6 - 5, 50);
             timer.stop();
         }
-
-        tiles.forEach(a -> a.draw(window));
-
     }
 
     @Override
