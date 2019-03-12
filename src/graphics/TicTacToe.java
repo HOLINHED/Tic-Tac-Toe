@@ -61,7 +61,7 @@ public class TicTacToe extends JPanel {
 
             final int w = window.getFontMetrics().stringWidth(winner);
 
-            window.drawString(winner, w - w/6 - 5, 50);
+            window.drawString(winner, (WIDTH / 2) - (w / 2), 50);
             timer.stop();
         }
     }

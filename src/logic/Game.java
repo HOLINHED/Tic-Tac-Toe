@@ -28,6 +28,7 @@ public class Game {
 
         if (!board.playPossible()) {
             running = false;
+            winner = "NONE";
             return;
         }
 
