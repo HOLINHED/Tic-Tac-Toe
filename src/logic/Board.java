@@ -70,7 +70,6 @@ public class Board {
 
                 if (state[y][x] == symbol) xToken += 1;
 
-
                 if (xToken == size || yToken == size || fToken == size || bToken == size) return true;
             }
         }
