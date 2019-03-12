@@ -53,7 +53,7 @@ public class Board {
 
             for (int y = 0; y < state[x].length; y++) {
                 if (state[x][y] == symbol) {
-                    yToken++;
+                    yToken += 1;
                 }
 
                 if (state[y][x] == symbol) {

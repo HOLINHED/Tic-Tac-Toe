@@ -17,18 +17,17 @@ public class TicTacToe extends JPanel {
     private Game game;
     private List<Tile> tiles;
     private Timer timer;
-    private final int WIDTH = 600;
-    private final int HEIGHT = 600;
+    private final int SIZE = 600;
 
     TicTacToe() {
 
-        setPreferredSize(new Dimension(WIDTH, HEIGHT));
+        setPreferredSize(new Dimension(SIZE, SIZE));
 
         setBackground(Color.black);
 
         final int BOARD_SIZE = 3;
 
-        this.game = new Game(BOARD_SIZE, new MouseInput(600 / BOARD_SIZE, this));
+        this.game = new Game(BOARD_SIZE, new MouseInput(SIZE / BOARD_SIZE, this));
 
         tiles = new ArrayList<>();
 
@@ -61,7 +60,8 @@ public class TicTacToe extends JPanel {
 
             final int w = window.getFontMetrics().stringWidth(winner);
 
-            window.drawString(winner, (WIDTH / 2) - (w / 2), 50);
+            window.drawString(winner, (SIZE / 2) - (w / 2), 50);
+
             timer.stop();
         }
     }

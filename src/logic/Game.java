@@ -9,15 +9,14 @@ public class Game {
     private boolean running;
     private boolean turn;
 
-    public Game(int big, Input input) {
-        this.board = new Board(big);
+    public Game(int size, Input input) {
+        board = new Board(size);
 
-        this.user = new User(board, input);
-        this.computer = new Computer(board);
-        this.winner = null;
-        this.turn = true;
+        user = new User(board, input);
+        computer = new Computer(board);
+        turn = true;
 
-        this.running = true;
+        running = true;
     }
 
     public Board getBoard() {

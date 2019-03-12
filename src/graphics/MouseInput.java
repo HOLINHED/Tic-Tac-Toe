@@ -1,11 +1,10 @@
 package graphics;
 
 import javax.swing.JPanel;
-
-import logic.Input;
-
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+
+import logic.Input;
 
 public class MouseInput implements Input, MouseListener {
 

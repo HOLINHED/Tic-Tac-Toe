@@ -19,7 +19,7 @@ public class User extends Player {
         int x = input.getX();
         int y = input.getY();
 
-        if (x != -1 && y != -1 && board.movePossible(x, y) && board.playPossible()) {
+        if (board.movePossible(x, y) && board.playPossible()) {
             board.updateState(x, y, getSymbol());
         }
 

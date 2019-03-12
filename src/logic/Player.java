@@ -13,11 +13,11 @@ public abstract class Player {
 
     abstract void makeMove();
 
-    public char getSymbol() {
+    char getSymbol() {
         return this.symbol;
     }
 
-    protected Board getBoard() {
+    Board getBoard() {
         return this.board;
     }
 

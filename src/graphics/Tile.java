@@ -13,11 +13,11 @@ class Tile {
     private int y;
     private Game game;
 
-    Tile(int x, int y, int scl, Game context) {
+    Tile(int x, int y, int scale, Game context) {
         this.x = x;
         this.y = y;
         this.game = context;
-        this.scale = scl;
+        this.scale = scale;
     }
 
     void draw(Graphics window) {
