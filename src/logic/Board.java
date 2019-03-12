@@ -21,7 +21,7 @@ public class Board {
                 .forEach(a -> Arrays.fill(a, ' '));
     }
 
-    public void updateState(int x, int y, char symbol) {
+    void updateState(int x, int y, char symbol) {
         state[x][y] = symbol;
         boardSize += 1;
     }
@@ -34,15 +34,15 @@ public class Board {
         return height;
     }
 
-    public boolean playPossible() {
+    boolean playPossible() {
         return boardSize < width * height;
     }
 
-    public boolean movePossible(int x, int y) {
+    boolean movePossible(int x, int y) {
         return (x >= 0 && y >= 0 && x < width && y < height) && state[x][y] == ' ';
     }
 
-    public boolean checkWinner(Player playing) {
+    boolean checkWinner(Player playing) {
 
         final char symbol = playing.getSymbol();
 

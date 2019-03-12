@@ -7,16 +7,19 @@ import java.awt.event.ActionListener;
 import javax.swing.Timer;
 import java.awt.Dimension;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 import java.util.List;
 
 import logic.Game;
 
-public class TicTacToe extends JPanel {
+public class TicTacToe extends JPanel implements MouseListener {
 
     private Game game;
     private List<Tile> tiles;
     private Timer timer;
+    private MouseInput input;
 
     public TicTacToe() {
 
@@ -26,7 +29,9 @@ public class TicTacToe extends JPanel {
 
         final int BOARD_SIZE = 3;
 
-        this.game = new Game(BOARD_SIZE, new MouseInput(600 / BOARD_SIZE));
+        input = new MouseInput(600 / BOARD_SIZE);
+
+        this.game = new Game(BOARD_SIZE, input);
 
         tiles = new ArrayList<>();
 
@@ -38,8 +43,10 @@ public class TicTacToe extends JPanel {
 
         ActionListener update = event -> repaint();
 
-        timer = new Timer(10, update);
+        timer = new Timer(1, update);
         timer.start();
+
+        addMouseListener(this);
     }
 
     public void paintComponent(Graphics window) {
@@ -58,4 +65,30 @@ public class TicTacToe extends JPanel {
 
     }
 
+    @Override
+    public void mouseClicked(MouseEvent e) {
+
+        if (e.getButton() == MouseEvent.BUTTON1) {
+
+            final int x = e.getX();
+            final int y = e.getY();
+
+            input.setX(x);
+            input.setY(y);
+
+        }
+
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) { }
+
+    @Override
+    public void mouseReleased(MouseEvent e) { }
+
+    @Override
+    public void mouseExited(MouseEvent e) { }
+
+    @Override
+    public void mouseEntered(MouseEvent e) { }
 }

@@ -1,7 +1,6 @@
 package graphics;
 
 import javax.swing.JFrame;
-import java.awt.*;
 
 public class Runner extends JFrame {
 

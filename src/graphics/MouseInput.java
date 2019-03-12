@@ -6,20 +6,17 @@ public class MouseInput implements Input {
 
     private int x;
     private int y;
-    private int size;
+    private static int size;
 
     MouseInput(int size) {
         this.size = size;
 
-        this.x = 0;
-        this.y = 0;
+        this.x = -1;
+        this.y = -1;
     }
 
     @Override
-    public void getPos() {
-        x = (int) Math.floor(Math.random() * 600) / size;
-        y = (int) Math.floor(Math.random() * 600) / size;
-    }
+    public void getPos() { }
 
     @Override
     public int getX() {
@@ -29,5 +26,15 @@ public class MouseInput implements Input {
     @Override
     public int getY() {
         return y;
+    }
+
+    void setX(int x) {
+        this.x = x / size;
+        System.out.println(this.x);
+    }
+
+    void setY(int y) {
+        this.y = y / size;
+        System.out.println(this.y);
     }
 }

@@ -6,21 +6,21 @@ import java.awt.Font;
 
 import logic.Game;
 
-public class Tile {
+class Tile {
 
     private int scale;
     private int x;
     private int y;
     private Game game;
 
-    public Tile(int x, int y, int scl, Game context) {
+    Tile(int x, int y, int scl, Game context) {
         this.x = x;
         this.y = y;
         this.game = context;
         this.scale = scl;
     }
 
-    public void draw(Graphics window) {
+    void draw(Graphics window) {
 
         char symbol = game.getBoard().getState()[x][y];
 
