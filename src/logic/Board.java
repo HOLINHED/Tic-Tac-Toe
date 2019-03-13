@@ -60,7 +60,7 @@ public class Board {
 
             final int r = (width - 1) - x;
 
-            if (state[x][r] == symbol) bToken += x;
+            if (state[x][r] == symbol) bToken += 1;
 
             // Checks rows/cols
             for (int y = 0; y < state[x].length; y++) {

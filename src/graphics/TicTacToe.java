@@ -35,7 +35,7 @@ public class TicTacToe extends JPanel {
 
         for (int y = 0; y < wh; y++)
             for(int x = 0; x < wh; x++)
-                tiles.add(new Tile(x, y, 600 / BOARD_SIZE, game));
+                tiles.add(new Tile(x, y, SIZE / BOARD_SIZE, game));
 
         ActionListener update = event -> repaint();
 
