@@ -12,6 +12,17 @@ public class MouseInput implements Input, MouseListener {
     private int y;
     private int size;
 
+    /**
+     * This is the input system for the graphics version of the game. It creates
+     * a mouse listener and updates x and y positions every time it is clicked.
+     * the default getPos() method is not used. Every MouseListener method except
+     * for mouseClicked() is not needed.
+     *
+     * @param size The size of each tile
+     *
+     * @param window The window that the program should listen for mouse events
+     *               in.
+     */
     MouseInput(int size, JPanel window) {
         this.size = size;
 
@@ -37,11 +48,14 @@ public class MouseInput implements Input, MouseListener {
     @Override
     public void mouseClicked(MouseEvent e) {
 
+        // Only updates if LEFT mouse button is clicked.
         if (e.getButton() == MouseEvent.BUTTON1) {
 
             final int x = e.getX();
             final int y = e.getY();
 
+            // Converts to position in game state. This is done by taking current X/Y
+            // position and dividing by size of each tile.
             this.x = x / size;
             this.y = y / size;
         }

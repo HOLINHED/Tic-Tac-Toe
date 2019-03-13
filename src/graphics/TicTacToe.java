@@ -21,22 +21,30 @@ public class TicTacToe extends JPanel {
 
     TicTacToe() {
 
+        // Sets preferred within this component to avoid certain elements
+        // going outside of the screen.
         setPreferredSize(new Dimension(SIZE, SIZE));
 
         setBackground(Color.black);
 
+        // Size of the board
         final int BOARD_SIZE = 3;
 
+        // Creates new game instance
         this.game = new Game(BOARD_SIZE, new MouseInput(SIZE / BOARD_SIZE, this));
 
+        // Declares arraylist of tiles
         tiles = new ArrayList<>();
 
         int wh = game.getBoard().getHeight();
 
+        // Adds as many tiles as the size of the game board. Uses only height of board
+        // because the width and height are always the same.
         for (int y = 0; y < wh; y++)
             for(int x = 0; x < wh; x++)
                 tiles.add(new Tile(x, y, SIZE / BOARD_SIZE, game));
 
+        // Creates timer and update event to redraw the game if anything changes.
         ActionListener update = event -> repaint();
 
         timer = new Timer(1, update);
@@ -47,8 +55,11 @@ public class TicTacToe extends JPanel {
 
         super.paintComponent(window);
 
+        // Draws each tile
         tiles.forEach(a -> a.draw(window));
 
+        // Updates game if it's running, else displays winner and stops timer
+        // to avoid repainting when game is in it's final state.
         if (game.isRunning()) {
             game.update();
         } else {

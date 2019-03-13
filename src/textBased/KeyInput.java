@@ -8,6 +8,7 @@ public class KeyInput implements Input {
     private int x;
     private int y;
 
+    @Override
     public void getPos() {
 
         Scanner scanner = new Scanner(System.in);
@@ -19,10 +20,12 @@ public class KeyInput implements Input {
         y = scanner.nextInt();
     }
 
+    @Override
     public int getX() {
         return x;
     }
 
+    @Override
     public int getY() {
         return y;
     }
