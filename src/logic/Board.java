@@ -87,18 +87,24 @@ public class Board {
      *
      * @param symbol The player getting checks. The method gets the symbol of this player.
      *
+     * @param board The board that the checker should check. If argument is empty, it uses the state
+     *              of the board.
+     *
      * @return boolean Returns true if board is in a winning state. False otherwise.
      */
-    boolean checkWinner(char symbol) {
+    boolean checkWinner(char symbol, char[][]... board) {
+
+        // Board to check
+        final char[][] check = board.length > 0 ? board[0] : state;
 
         // stores the symbol for cleaner code
-        final int size = state.length;
+        final int size = check.length;
 
         // Does not reset because there is only 1 set of each diagonal.
         int fToken = 0;
         int bToken = 0;
 
-        for (int x = 0; x < state.length; x++) {
+        for (int x = 0; x < check.length; x++) {
 
             // Resets token on each iteration because there are N amount of
             // rows and cols.
@@ -106,22 +112,22 @@ public class Board {
             int yToken = 0;
 
             // Forward diagonal
-            if (state[x][x] == symbol) fToken += 1;
+            if (check[x][x] == symbol) fToken += 1;
 
             // Inverse direction of diagonal 0 -> size, 0 <- size
             final int r = (width - 1) - x;
 
             // Backwards diagonal
-            if (state[x][r] == symbol) bToken += 1;
+            if (check[x][r] == symbol) bToken += 1;
 
             // Checks rows/cols
-            for (int y = 0; y < state[x].length; y++) {
+            for (int y = 0; y < check[x].length; y++) {
 
                 // Column
-                if (state[x][y] == symbol) yToken += 1;
+                if (check[x][y] == symbol) yToken += 1;
 
                 // Row
-                if (state[y][x] == symbol) xToken += 1;
+                if (check[y][x] == symbol) xToken += 1;
 
                 // If any token is equal to size, then board is in a win state.
                 if (xToken == size || yToken == size || fToken == size || bToken == size) return true;
