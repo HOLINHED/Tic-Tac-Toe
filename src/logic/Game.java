@@ -72,7 +72,7 @@ public class Game {
             turn = !turn;
 
         // Checks for whether board is in a win state for current player.
-        if (getBoard().checkWinner(playing)) {
+        if (getBoard().checkWinner(playing.getSymbol())) {
             running = false;
             winner = playing.toString();
         }

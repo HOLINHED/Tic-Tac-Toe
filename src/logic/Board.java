@@ -85,14 +85,13 @@ public class Board {
      * Checks if the board is in a winning state for a specific symbol. Checks rows, columns, and both
      * diagonals.
      *
-     * @param playing The player getting checks. The method gets the symbol of this player.
+     * @param symbol The player getting checks. The method gets the symbol of this player.
      *
      * @return boolean Returns true if board is in a winning state. False otherwise.
      */
-    boolean checkWinner(Player playing) {
+    boolean checkWinner(char symbol) {
 
-        // Stores symbol to check and size of board.
-        final char symbol = playing.getSymbol();
+        // stores the symbol for cleaner code
         final int size = state.length;
 
         // Does not reset because there is only 1 set of each diagonal.
