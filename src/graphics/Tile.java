@@ -43,7 +43,7 @@ class Tile {
         // Converts it's position from board size to screen size. This is done by taking X/Y
         // position and multiplying by scale. WIDTH and HEIGHT of the rectangle are 1 pixel
         // scale to give them a black boarder.
-        window.fillRect(x * scale, y * scale, scale - 1, scale - 1);
+        window.fillRect((x * scale) + 1, (y * scale) + 1, scale - 2, scale - 2);
 
         window.setColor(Color.black);
 
