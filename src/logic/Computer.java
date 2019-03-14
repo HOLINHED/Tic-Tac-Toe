@@ -97,9 +97,11 @@ public class Computer extends Player {
 
                     // automatically makes move to block player win
                     if (getBoard().checkWinner('X', board)) {
-                        px = x;
-                        py = y;
-                        maxToken = 499;
+                        if (maxToken < 500) {
+                            px = x;
+                            py = y;
+                            maxToken = 499;
+                        }
                     }
 
                     // Resets spot to
