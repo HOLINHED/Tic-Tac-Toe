@@ -38,7 +38,7 @@ public class Computer extends Player {
             for (int y = 0; y < board.length; y++) {
 
                 // ONLY do calculations if that move would be possible
-                if (getBoard().movePossible(x, y)) {
+                if (maxToken < 100 && getBoard().movePossible(x, y)) {
 
                     board[x][y] = getSymbol();
 
@@ -96,12 +96,10 @@ public class Computer extends Player {
                     board[x][y] = 'X';
 
                     // automatically makes move to block player win
-                    if (getBoard().checkWinner('X', board)) {
-                        if (maxToken < 500) {
-                            px = x;
-                            py = y;
-                            maxToken = 499;
-                        }
+                    if (maxToken < 500 && getBoard().checkWinner('X', board)) {
+                        px = x;
+                        py = y;
+                        maxToken = 499;
                     }
 
                     // Resets spot to
