@@ -38,7 +38,7 @@ public class Computer extends Player {
             for (int y = 0; y < board.length; y++) {
 
                 // ONLY do calculations if that move would be possible
-                if (maxToken < 100 && getBoard().movePossible(x, y)) {
+                if (getBoard().movePossible(x, y)) {
 
                     board[x][y] = getSymbol();
 
@@ -88,6 +88,15 @@ public class Computer extends Player {
                                 px = x;
                                 py = y;
                                 maxToken = bigToken;
+                            }
+
+                            // chance of changing spot to equivalent scoring spot to add variety
+                            if (maxToken < 100 && bigToken == maxToken) {
+                                final double ran = Math.random();
+                                if (ran < 0.105) {
+                                    px = x;
+                                    py = y;
+                                }
                             }
                         }
                     }
